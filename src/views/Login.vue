@@ -33,11 +33,17 @@
 
 <script>
 import { ref } from "vue";
+import { useStore } from "vuex";
 
 export default {
   setup() {
     let email = ref("");
     let password = ref("");
+
+    const store = useStore();
+
+    console.log(store.state.user);
+    store.commit("setUser", "yoshi");
 
     const handleClick = () => {
         console.log({email, password});
